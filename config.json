@@ -1,0 +1,57 @@
+{
+  "log": {"loglevel": "warning"},
+  "inbounds": [
+    {
+      "port": 8080,
+      "protocol": "vless",
+      "settings": {
+        "clients": [
+          {"id": "18ba8efe-d8f1-423b-b6bd-45502088a0f6", "level": 0}
+        ],
+        "decryption": "none"
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "none",
+        "wsSettings": {
+          "path": "/"
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "vless",
+      "settings": {
+        "vnext": [
+          {
+            "address": "npmjs.com",
+            "port": 443,
+            "users": [
+              {
+                "id": "18ba8efe-d8f1-423b-b6bd-45502088a0f6",
+                "encryption": "none"
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "tlsSettings": {
+          "serverName": "dl.mardokh.site",
+          "allowInsecure": true,
+          "fingerprint": "chrome",
+          "alpn": ["h2", "http/1.1"]
+        },
+        "wsSettings": {
+          "path": "/",
+          "headers": {
+            "Host": "dl.mardokh.site"
+          }
+        }
+      }
+    }
+  ]
+}
