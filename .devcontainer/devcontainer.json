@@ -1,0 +1,4 @@
+{
+      "name": "singbox",
+        "postStartCommand": "nohup sing-box run -c config.json > sing.log 2>&1 & sleep 3 && gh codespace ports visibility 8080:public -c $CODESPACE_NAME"
+        }
